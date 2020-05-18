@@ -3,7 +3,7 @@
 
 **Michał Sulecki 113112**
 
-**Dominik Wiśniewski dodajSwojIndeksXd**
+**Dominik Wiśniewski 113131**
 
 *Applied Computer Science*
 

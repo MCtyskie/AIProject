@@ -1,14 +1,14 @@
-# AIProject
-**Artificial Intelligence project 2019/2020**
 
-*Michał Sulecki 113112*
+# Artificial Intelligence project 2019/2020
 
-*Dominik Wiśniewski dodajSwojIndeksXd*
+**Michał Sulecki 113112**
 
-Applied Computer Science
+**Dominik Wiśniewski dodajSwojIndeksXd**
 
-4th term
+*Applied Computer Science*
 
-Faculty of Telecommunications, Computer Science and Electrical Engineering
+*4th term*
 
-University of Science and Technology in Bydgoszcz
+*Faculty of Telecommunications, Computer Science and Electrical Engineering*
+
+*University of Science and Technology in Bydgoszcz*

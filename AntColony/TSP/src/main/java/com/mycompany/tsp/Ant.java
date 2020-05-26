@@ -24,6 +24,10 @@ public class Ant {
         return visited[idx];
     }
     
+    public int getRouteByIdx(int idx){
+        return route[idx];
+    }
+    
     public void visitCity(int currentIdx,int city){
         route[currentIdx+1]=city;
         visited[city]=true;

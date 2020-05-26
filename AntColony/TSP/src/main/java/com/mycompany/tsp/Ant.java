@@ -20,6 +20,10 @@ public class Ant {
         this.visited = new boolean[routeSize];
     }
     
+    public boolean getVisitedByIdx(int idx){
+        return visited[idx];
+    }
+    
     public void visitCity(int currentIdx,int city){
         route[currentIdx+1]=city;
         visited[city]=true;
@@ -31,5 +35,12 @@ public class Ant {
         }
         return length;
     }
+
+    public void clear() {
+        for(int i=0;i<routeSize;i++){
+            visited[i]=false;
+        }
+    }
+    
     
 }

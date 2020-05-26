@@ -25,7 +25,7 @@ public class FXMLController implements Initializable {
     @FXML
     private ListView<CitiesEnum> citiesListView;
 
-    private ObservableList<CitiesEnum> observableList1 = FXCollections.observableArrayList();
+    private static ObservableList<CitiesEnum> observableList1 = FXCollections.observableArrayList();
 
     @FXML
     void addCityButton(ActionEvent event) {
@@ -46,6 +46,11 @@ public class FXMLController implements Initializable {
     void refresh(){
         citiesListView.setItems(observableList1);
     }
+
+    public static ObservableList<CitiesEnum> getObservableList1() {
+        return observableList1;
+    }
+
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {

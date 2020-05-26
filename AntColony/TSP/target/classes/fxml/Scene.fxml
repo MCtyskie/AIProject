@@ -10,7 +10,7 @@
    <children>
       <ComboBox fx:id="cityComboBox" layoutX="36.0" layoutY="28.0" prefHeight="37.0" prefWidth="156.0" promptText="&lt;choose city&gt;" />
       <Button fx:id="addCityButton" layoutX="192.0" layoutY="28.0" mnemonicParsing="false" onAction="#addCityButton" prefHeight="37.0" prefWidth="76.0" text="add" />
-      <Label fx:id="addInfoLabel" layoutX="192.0" layoutY="65.0" prefHeight="26.0" prefWidth="76.0" />
+      <Label fx:id="addInfoLabel" layoutX="192.0" layoutY="65.0" prefHeight="26.0" prefWidth="133.0" />
       <ListView fx:id="citiesListView" layoutX="328.0" layoutY="28.0" prefHeight="245.0" prefWidth="278.0" />
    </children>
 </AnchorPane>

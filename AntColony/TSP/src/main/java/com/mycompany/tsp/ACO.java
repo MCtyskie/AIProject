@@ -12,6 +12,10 @@ import java.util.List;
 import java.util.OptionalInt;
 import java.util.Random;
 import java.util.stream.IntStream;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
+//VU6qX1mGKHLEZkb5E1b1~T3DaZuyK6Dn8qF6HxvwggA~AhJvdjQpVUVUVPXMCeEmVYV893RrJ_1cQDQrqNsDvRsxyVMZIMm6C9_7fDvoKGV-
 
 
 public class ACO {
@@ -36,6 +40,8 @@ public class ACO {
     private int[] bestOrder;
     private double bestLength;
     
+    private static ObservableList<CitiesEnum> citiesList;
+    
     public ACO(int numOfCities){
         graph = generateCitiesMatrix(numOfCities);
         numOfCities = graph.length;
@@ -49,10 +55,13 @@ public class ACO {
         IntStream.range(0, numOfAnts).forEach(i -> ants.add(new Ant(numOfCities)));
     }
 
-    private double[][] generateCitiesMatrix(int numOfCities) {
-        //TODO
-        return null;
+    public double[][] generateCitiesMatrix(int numOfCities) {
+        double[][] matrix=new double[numOfCities][numOfCities];
+        citiesList= FXMLController.getObservableList1();
+        
+        //return null;
     }
+    
     
     public void optimize(){
         

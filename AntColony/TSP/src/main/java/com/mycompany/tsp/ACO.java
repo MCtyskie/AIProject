@@ -44,10 +44,10 @@ public class ACO {
         numOfAnts = (int) (numOfCities * antFactor);//TO DO from GUI
         routes = new double[numOfCities][numOfCities];
         probabilities = new double[numOfCities];
-        createAntMatrix(numOfAnts);
+        createAnts(numOfAnts);
     }
     
-    public void createAntMatrix(int numOfAnts){
+    public void createAnts(int numOfAnts){
         IntStream.range(0, numOfAnts).forEach(i -> ants.add(new Ant(numOfCities)));
     }
 

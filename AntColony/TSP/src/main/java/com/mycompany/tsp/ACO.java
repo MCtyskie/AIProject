@@ -6,6 +6,8 @@
 
 package com.mycompany.tsp;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 
@@ -18,10 +20,25 @@ public class ACO {
     private double antFactor = 0.8;
     private double randomFactor = 0.01;
     
+    private List<Ant> ants = new ArrayList<>();
     private int numOfCities;
     private int numOfAnts;
     private double graph[][];
     private double routes[][];
     private Random rand = new Random();
     private double probabilities[];
+    
+    private int currentIdx;
+    private int[] bestOrder;
+    private double bestLength;
+    
+    public ACO(int numOfCities){
+        graph = generateCitiesMatrix(numOfCities);
+        numOfCities = graph.length;
+    }
+
+    private double[][] generateCitiesMatrix(int numOfCities) {
+        //TODO
+        return null;
+    }
 }

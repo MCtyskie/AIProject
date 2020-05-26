@@ -66,7 +66,12 @@ public class ACO {
     
     
     public void optimize(){
-        
+        IntStream.rangeClosed(1, 3)
+            .forEach(i -> {
+                //TO DO GUI 
+                System.out.println("Attempt #" + i);
+                solve();
+            });
     }
     
     public int[] solve(){

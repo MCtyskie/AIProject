@@ -13,6 +13,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 
 public class FXMLController implements Initializable {
 
@@ -21,17 +22,31 @@ public class FXMLController implements Initializable {
     @FXML
     private Button addCityButton;
     @FXML
+    private Button startACO;
+    @FXML
     private Label addInfoLabel;
     @FXML
     private ListView<CitiesEnum> citiesListView;
+    @FXML
+    private TextField colonySize;
+    @FXML
+    private TextField iterations;
+    @FXML
+    private TextField alpha;
+    @FXML
+    private TextField beta;
+    @FXML
+    private TextField evaporation;
+    @FXML
+    private TextField qVal;
 
-    private static ObservableList<CitiesEnum> observableList1 = FXCollections.observableArrayList();
+    private static ObservableList<CitiesEnum> cities = FXCollections.observableArrayList();
 
     @FXML
     void addCityButton(ActionEvent event) {
         if (cityComboBox != null) {
-            if (!observableList1.contains(cityComboBox.getValue())) {
-                observableList1.add(cityComboBox.getValue());
+            if (!cities.contains(cityComboBox.getValue())) {
+                cities.add(cityComboBox.getValue());
                 addInfoLabel.setText("city added");
             }
             else{
@@ -43,12 +58,18 @@ public class FXMLController implements Initializable {
         refresh();
     }
     
+    @FXML
+    void startAcoButton(ActionEvent event){
+        ACO antColony = new ACO(cities.size());
+        //antColony.optimize();
+    }
+    
     void refresh(){
-        citiesListView.setItems(observableList1);
+        citiesListView.setItems(cities);
     }
 
     public static ObservableList<CitiesEnum> getObservableList1() {
-        return observableList1;
+        return cities;
     }
 
 

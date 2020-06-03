@@ -97,11 +97,10 @@ public class ACO {
     }
     
     public void setupAnts(){
-        System.out.println(ants.toString());
         ants.stream().
                 forEach(ant -> {
                     ant.clear();
-                    ant.visitCity(-1, random.nextInt(numOfCities));
+                    ant.visitCity(-1, random.nextInt(numOfCities));// TO FIX exception out of bounds 
                 });
         currentIdx=0;
     }

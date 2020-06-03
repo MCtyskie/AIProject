@@ -42,7 +42,7 @@ public class ACO {
     private int[] bestOrder;
     private double bestLength;
     
-    private static ObservableList<CitiesEnum> citiesList;
+    private static ObservableList<String> citiesList;
     
     public ACO(int numOfSelectedCities, int colonySize){
         //graph = generateCitiesMatrix(numOfCities); TO DO MATRIX OF CITIES

@@ -1,9 +1,9 @@
 package com.mycompany.tsp;
 
 import java.net.URL;
-import java.util.HashSet;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
-import java.util.Set;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -18,7 +18,7 @@ import javafx.scene.control.TextField;
 public class FXMLController implements Initializable {
 
     @FXML
-    private ComboBox<CitiesEnum> cityComboBox;
+    private ComboBox<String> cityComboBox;
     @FXML
     private Button addCityButton;
     @FXML
@@ -30,7 +30,7 @@ public class FXMLController implements Initializable {
     @FXML
     private Label bestOrder;
     @FXML
-    private ListView<CitiesEnum> citiesListView;
+    private ListView<String> citiesListView;
     @FXML
     private TextField colonySize;
     @FXML
@@ -44,7 +44,9 @@ public class FXMLController implements Initializable {
     @FXML
     private TextField qVal;
     
-    private static ObservableList<CitiesEnum> cities = FXCollections.observableArrayList();
+    private Map<Integer, String> citiesMap= new HashMap<>();
+    
+    private static ObservableList<String> cities = FXCollections.observableArrayList();
     
     private static String lengthResult;
     private static String orderResult;
@@ -90,13 +92,36 @@ public class FXMLController implements Initializable {
         citiesListView.setItems(cities);
     }
 
-    public static ObservableList<CitiesEnum> getObservableList1() {
+    public static ObservableList<String> getObservableList1() {
         return cities;
     }
-
+    
+    public void insertCitiesMap(){
+        citiesMap.put(0,"KRAKOW");
+        citiesMap.put(1, "WARSZAWA");
+        citiesMap.put(2, "WROCLAW");
+        citiesMap.put(3,"GDANSK");
+        citiesMap.put(4, "BYDGOSZCZ");
+        citiesMap.put(5, "POZNAN");
+        citiesMap.put(6,"KATOWICE");
+        citiesMap.put(7,"BIALYSTOK");
+        citiesMap.put(8,"LODZ");
+        citiesMap.put(9,"SANDOMIERZ");
+        citiesMap.put(10,"KAZIMIERZ DOLNY");
+        citiesMap.put(11,"RESZEL");
+        citiesMap.put(12,"MIELNO");
+        citiesMap.put(13,"KARPACZ");
+        citiesMap.put(14,"OLKUSZ");
+        citiesMap.put(15,"KRYNICA ZDROJ");
+        citiesMap.put(16,"HEL");
+        citiesMap.put(17,"ZAMOSC");
+        citiesMap.put(18,"ZAKOPANE");
+        citiesMap.put(19,"SZCZECIN");
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        cityComboBox.setItems(FXCollections.observableArrayList(CitiesEnum.values()));
+        insertCitiesMap();
+        cityComboBox.setItems(FXCollections.observableArrayList(citiesMap.values()));
     }
 }

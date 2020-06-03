@@ -8,6 +8,7 @@ package com.mycompany.tsp;
 
 import static java.lang.Math.random;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.OptionalInt;
 import java.util.Random;
@@ -92,7 +93,7 @@ public class ACO {
             updateBest();
         });
         FXMLController.setLengthResult(String.valueOf(bestLength-numOfCities));
-        FXMLController.setOrderResult(String.valueOf(bestOrder));
+        FXMLController.setOrderResult(String.valueOf(Arrays.toString(bestOrder)));
         return bestOrder.clone();        
     }
     

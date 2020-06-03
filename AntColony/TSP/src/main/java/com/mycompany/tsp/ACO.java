@@ -20,12 +20,12 @@ import lombok.Setter;
 
 @Setter
 public class ACO {
-    private double c;//= 1.0;
+    private double c =1.0;
     private double alpha;//= 1;
     private double beta; //= 5;
     private double evaporation; //= 0.5;
     private double Q; //= 500;
-    private double randomFactor; //= 0.01;
+    private double randomFactor= 0.01;
     
     private int iterations;// = 1000;
     
@@ -48,6 +48,7 @@ public class ACO {
         graph = generateRandomMatrix(numOfCities); //FOR TESTING
         numOfCities = graph.length;
         numOfAnts=colonySize;
+        System.out.println("CITIES : "+numOfCities+" | ANTS : "+numOfAnts);
         routes = new double[numOfCities][numOfCities];
         probabilities = new double[numOfCities];
         createAnts(numOfAnts);
@@ -92,11 +93,11 @@ public class ACO {
         });
         FXMLController.setLengthResult(String.valueOf(bestLength-numOfCities));
         FXMLController.setOrderResult(String.valueOf(bestOrder));
-        return bestOrder.clone();
-        
+        return bestOrder.clone();        
     }
     
     public void setupAnts(){
+        System.out.println(ants.toString());
         ants.stream().
                 forEach(ant -> {
                     ant.clear();
@@ -109,6 +110,7 @@ public class ACO {
         IntStream.range(currentIdx,numOfCities -1).
                 forEach(i->{
                     ants.forEach(ant-> ant.visitCity(currentIdx, selectNextCity(ant)));
+                    currentIdx++;
                 });
     }
     
@@ -156,13 +158,13 @@ public class ACO {
                 routes[i][j] *= evaporation;
             }
         }
-        for(Ant ant : ants){
+        ants.forEach((ant) -> {
             double contribution = Q/ant.routeLength(graph);
             for(int i=0;i<numOfCities-1;i++){
                 routes[ant.getRouteByIdx(i)][ant.getRouteByIdx(+1)] += contribution;
             }
             routes[ant.getRouteByIdx(numOfCities-1)][ant.getRouteByIdx(0)] += contribution;
-        }
+        });
     }
     
     public void updateBest(){

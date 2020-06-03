@@ -14,6 +14,8 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import org.apache.commons.collections4.BidiMap;
+import org.apache.commons.collections4.bidimap.DualHashBidiMap;
 
 public class FXMLController implements Initializable {
 
@@ -44,7 +46,8 @@ public class FXMLController implements Initializable {
     @FXML
     private TextField qVal;
     
-    private Map<Integer, String> citiesMap= new HashMap<>();
+    private BidiMap<Integer, String> citiesMap = new DualHashBidiMap<>();
+    private static BidiMap<Integer, String> selectedCitiesMap = new DualHashBidiMap<>();
     
     private static ObservableList<String> cities = FXCollections.observableArrayList();
     
@@ -59,11 +62,17 @@ public class FXMLController implements Initializable {
         orderResult=res;
     }
     
+    public static BidiMap getSelectedCitiesMap(){
+        return selectedCitiesMap;
+    }
+    
     @FXML
     void addCityButton(ActionEvent event) {
         if (cityComboBox.valueProperty().getValue() != null) {
             if (!cities.contains(cityComboBox.getValue())) {
                 cities.add(cityComboBox.getValue());
+                selectedCitiesMap.put(citiesMap.getKey(cityComboBox.getValue()),cityComboBox.getValue());
+                System.out.println(selectedCitiesMap.toString());
                 addInfoLabel.setText("city added");
             }
             else{

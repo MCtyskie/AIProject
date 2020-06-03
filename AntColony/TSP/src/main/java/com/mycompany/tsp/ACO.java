@@ -9,13 +9,16 @@ package com.mycompany.tsp;
 import static java.lang.Math.random;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.OptionalInt;
 import java.util.Random;
 import java.util.stream.IntStream;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import lombok.Setter;
+import org.apache.commons.collections4.BidiMap;
 
 //VU6qX1mGKHLEZkb5E1b1~T3DaZuyK6Dn8qF6HxvwggA~AhJvdjQpVUVUVPXMCeEmVYV893RrJ_1cQDQrqNsDvRsxyVMZIMm6C9_7fDvoKGV-
 
@@ -42,7 +45,7 @@ public class ACO {
     private int[] bestOrder;
     private double bestLength;
     
-    private static ObservableList<String> citiesList;
+    private static BidiMap<Integer,String> citiesMap;
     
     public ACO(int numOfSelectedCities, int colonySize){
         //graph = generateCitiesMatrix(numOfCities); TO DO MATRIX OF CITIES
@@ -489,8 +492,13 @@ public class ACO {
 
     public double[][] generateCitiesMatrix(int numOfCities) {
         double[][] matrix=new double[numOfCities][numOfCities];
-        citiesList= FXMLController.getObservableList1();
-        
+        citiesMap = FXMLController.getSelectedCitiesMap();
+        for(int i=0;i<numOfCities;i++){
+            int x;
+            for(int j=0;j<numOfCities;j++){
+                int y ;
+            }
+        }
         return null;
     }
     

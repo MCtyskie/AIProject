@@ -20,7 +20,6 @@ import lombok.Setter;
 
 @Setter
 public class ACO {
-    //TO DO FROM GUI
     private double c;//= 1.0;
     private double alpha;//= 1;
     private double beta; //= 5;
@@ -82,7 +81,8 @@ public class ACO {
             updateRoutes();
             updateBest();
         });
-        //TODO GUI Best route len and best route order
+        FXMLController.setLengthResult(String.valueOf(bestLength-numOfCities));
+        FXMLController.setOrderResult(String.valueOf(bestOrder));
         return bestOrder.clone();
         
     }

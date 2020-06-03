@@ -26,6 +26,10 @@ public class FXMLController implements Initializable {
     @FXML
     private Label addInfoLabel;
     @FXML
+    private Label bestLen;
+    @FXML
+    private Label bestOrder;
+    @FXML
     private ListView<CitiesEnum> citiesListView;
     @FXML
     private TextField colonySize;
@@ -42,8 +46,17 @@ public class FXMLController implements Initializable {
     
     private static ObservableList<CitiesEnum> cities = FXCollections.observableArrayList();
     
-    private static String result;
+    private static String lengthResult;
+    private static String orderResult;
 
+    public static void setLengthResult(String res){
+        lengthResult=res;
+    }
+    
+    public static void setOrderResult(String res){
+        orderResult=res;
+    }
+    
     @FXML
     void addCityButton(ActionEvent event) {
         if (cityComboBox != null) {

@@ -59,7 +59,7 @@ public class FXMLController implements Initializable {
     
     @FXML
     void addCityButton(ActionEvent event) {
-        if (cityComboBox != null) {
+        if (cityComboBox.valueProperty().getValue() != null) {
             if (!cities.contains(cityComboBox.getValue())) {
                 cities.add(cityComboBox.getValue());
                 addInfoLabel.setText("city added");
@@ -82,6 +82,8 @@ public class FXMLController implements Initializable {
         antColony.setEvaporation(Double.parseDouble(evaporation.getText()));
         antColony.setQ(Double.parseDouble(qVal.getText()));
         antColony.optimize(); //TO DO testing
+        bestLen.setText(lengthResult);
+        bestOrder.setText(orderResult);
     }
     
     void refresh(){

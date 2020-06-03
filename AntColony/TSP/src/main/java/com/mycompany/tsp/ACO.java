@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.OptionalInt;
 import java.util.Random;
+import java.util.Set;
 import java.util.stream.IntStream;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -491,15 +492,18 @@ public class ACO {
     }
 
     public double[][] generateCitiesMatrix(int numOfCities) {
-        double[][] matrix=new double[numOfCities][numOfCities];
+        double[][] citiesMatrix=new double[numOfCities][numOfCities];
         citiesMap = FXMLController.getSelectedCitiesMap();
+        ArrayList<Integer> keys=(ArrayList<Integer>) citiesMap.keySet();
         for(int i=0;i<numOfCities;i++){
-            int x;
+            int x = keys.get(i);
             for(int j=0;j<numOfCities;j++){
-                int y ;
+                int y = keys.get(j);
+                // TO DO  fetch from default matrix 
+                //citiesMatrix[i][j] = defaultmatrix[x][y];
             }
         }
-        return null;
+        return citiesMatrix;
     }
     
     //FOR TESTING

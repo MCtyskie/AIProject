@@ -43,9 +43,9 @@ public class ACO {
     
     private static ObservableList<CitiesEnum> citiesList;
     
-    public ACO(int numOfCities, int colonySize){
+    public ACO(int numOfSelectedCities, int colonySize){
         //graph = generateCitiesMatrix(numOfCities); TO DO MATRIX OF CITIES
-        graph = generateRandomMatrix(numOfCities); //FOR TESTING
+        graph = generateRandomMatrix(numOfSelectedCities); //FOR TESTING
         numOfCities = graph.length;
         numOfAnts=colonySize;
         System.out.println("CITIES : "+numOfCities+" | ANTS : "+numOfAnts);
@@ -100,7 +100,7 @@ public class ACO {
         ants.stream().
                 forEach(ant -> {
                     ant.clear();
-                    ant.visitCity(-1, random.nextInt(numOfCities));// TO FIX exception out of bounds 
+                    ant.visitCity(-1, random.nextInt(numOfCities));
                 });
         currentIdx=0;
     }

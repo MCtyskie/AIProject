@@ -19,7 +19,7 @@ public class Ant {
 	}
 
 	protected void visitCity(int currentIndex, int city) {
-		trail[currentIndex + 1] = city;
+		trail[currentIndex+1] = city;
 		visited[city] = true;
 	}
 

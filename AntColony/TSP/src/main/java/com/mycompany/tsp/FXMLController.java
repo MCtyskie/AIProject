@@ -81,7 +81,7 @@ public class FXMLController implements Initializable {
         antColony.setBeta(Double.parseDouble(beta.getText()));
         antColony.setEvaporation(Double.parseDouble(evaporation.getText()));
         antColony.setQ(Double.parseDouble(qVal.getText()));
-        //antColony.optimize(); TO DO testing
+        antColony.optimize(); //TO DO testing
     }
     
     void refresh(){

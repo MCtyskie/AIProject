@@ -1,1 +1,5 @@
+com\mycompany\tsp\Ant.class
+com\mycompany\tsp\ACO.class
 com\mycompany\tsp\MainApp.class
+com\mycompany\tsp\CitiesEnum.class
+com\mycompany\tsp\FXMLController.class

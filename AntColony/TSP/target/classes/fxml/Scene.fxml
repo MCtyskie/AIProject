@@ -12,18 +12,18 @@
    <children>
       <ComboBox fx:id="cityComboBox" layoutX="36.0" layoutY="28.0" prefHeight="37.0" prefWidth="156.0" promptText="&lt;choose city&gt;" />
       <Button fx:id="addCityButton" layoutX="221.0" layoutY="28.0" mnemonicParsing="false" onAction="#addCityButton" prefHeight="37.0" prefWidth="76.0" text="add" />
-      <Label fx:id="addInfoLabel" layoutX="192.0" layoutY="65.0" prefHeight="26.0" prefWidth="133.0" />
-      <ListView fx:id="citiesListView" layoutX="328.0" layoutY="28.0" prefHeight="330.0" prefWidth="278.0" />
-      <TextField fx:id="colonySize" layoutX="148.0" layoutY="91.0" />
-      <TextField fx:id="iterations" layoutX="148.0" layoutY="138.0" />
-      <TextField fx:id="alpha" layoutX="148.0" layoutY="188.0" />
-      <TextField fx:id="beta" layoutX="148.0" layoutY="235.0" />
-      <Label layoutX="36.0" layoutY="91.0" prefHeight="25.0" prefWidth="100.0" text="Colony size : ">
+      <Label fx:id="addInfoLabel" layoutX="148.0" layoutY="78.0" prefHeight="26.0" prefWidth="149.0" />
+      <ListView fx:id="citiesListView" layoutX="328.0" layoutY="28.0" prefHeight="302.0" prefWidth="278.0" />
+      <TextField fx:id="colonySize" layoutX="148.0" layoutY="115.0" promptText="30" />
+      <TextField fx:id="iterations" layoutX="148.0" layoutY="150.0" promptText="100" />
+      <TextField fx:id="alpha" layoutX="148.0" layoutY="188.0" promptText="1.0" />
+      <TextField fx:id="beta" layoutX="148.0" layoutY="229.0" promptText="3.0" />
+      <Label layoutX="36.0" layoutY="115.0" prefHeight="25.0" prefWidth="100.0" text="Colony size : ">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Label layoutX="36.0" layoutY="138.0" prefHeight="25.0" prefWidth="100.0" text="Iterations : ">
+      <Label layoutX="36.0" layoutY="150.0" prefHeight="25.0" prefWidth="100.0" text="Iterations : ">
          <font>
             <Font size="15.0" />
          </font>
@@ -33,23 +33,30 @@
             <Font size="15.0" />
          </font>
       </Label>
-      <Label layoutX="36.0" layoutY="235.0" prefHeight="25.0" prefWidth="100.0" text="Beta : ">
+      <Label layoutX="36.0" layoutY="229.0" prefHeight="25.0" prefWidth="100.0" text="Beta : ">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <TextField fx:id="evaporation" layoutX="148.0" layoutY="285.0" />
-      <TextField fx:id="qVal" layoutX="148.0" layoutY="332.0" />
-      <Label layoutX="36.0" layoutY="285.0" prefHeight="25.0" prefWidth="100.0" text="Evaporation : ">
+      <TextField fx:id="evaporation" layoutX="148.0" layoutY="265.0" promptText="0.5" />
+      <TextField fx:id="qVal" layoutX="148.0" layoutY="305.0" promptText="500" />
+      <Label layoutX="36.0" layoutY="265.0" prefHeight="25.0" prefWidth="100.0" text="Evaporation : ">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Label layoutX="36.0" layoutY="317.0" prefHeight="56.0" prefWidth="112.0" text="Q / Pheromone left : " wrapText="true">
+      <Label layoutX="36.0" layoutY="290.0" prefHeight="56.0" prefWidth="112.0" text="Q / Pheromone left : " wrapText="true">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Button fx:id="startACO" layoutX="154.0" layoutY="373.0" mnemonicParsing="false" onAction="#startAcoButton" prefHeight="37.0" prefWidth="76.0" text="Start" />
+      <Button fx:id="startACO" layoutX="36.0" layoutY="373.0" mnemonicParsing="false" onAction="#startAcoButton" prefHeight="37.0" prefWidth="76.0" text="Start" />
+      <Label layoutX="42.0" layoutY="79.0" prefHeight="25.0" prefWidth="100.0" text="STATUS : ">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="bestLen" layoutX="148.0" layoutY="345.0" prefHeight="26.0" prefWidth="457.0" />
+      <Label fx:id="bestOrder" layoutX="148.0" layoutY="391.0" prefHeight="26.0" prefWidth="457.0" />
    </children>
 </AnchorPane>

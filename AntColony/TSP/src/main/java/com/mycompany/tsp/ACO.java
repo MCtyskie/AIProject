@@ -44,7 +44,8 @@ public class ACO {
     private static ObservableList<CitiesEnum> citiesList;
     
     public ACO(int numOfCities, int colonySize){
-        graph = generateCitiesMatrix(numOfCities);
+        //graph = generateCitiesMatrix(numOfCities); TO DO MATRIX OF CITIES
+        graph = generateRandomMatrix(numOfCities); //FOR TESTING
         numOfCities = graph.length;
         numOfAnts=colonySize;
         routes = new double[numOfCities][numOfCities];
@@ -60,9 +61,17 @@ public class ACO {
         double[][] matrix=new double[numOfCities][numOfCities];
         citiesList= FXMLController.getObservableList1();
         
-        //return null;
+        return null;
     }
     
+    //FOR TESTING
+    public double[][] generateRandomMatrix(int n) {
+        double[][] randomMatrix = new double[n][n];
+        IntStream.range(0, n)
+            .forEach(i -> IntStream.range(0, n)
+                .forEach(j -> randomMatrix[i][j] = Math.abs(random.nextInt(100) + 1)));
+        return randomMatrix;
+    }
     
     public void optimize(){
         IntStream.rangeClosed(1, 3)

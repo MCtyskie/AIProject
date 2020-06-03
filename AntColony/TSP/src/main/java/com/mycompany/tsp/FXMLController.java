@@ -39,8 +39,10 @@ public class FXMLController implements Initializable {
     private TextField evaporation;
     @FXML
     private TextField qVal;
-
+    
     private static ObservableList<CitiesEnum> cities = FXCollections.observableArrayList();
+    
+    private static String result;
 
     @FXML
     void addCityButton(ActionEvent event) {
@@ -60,8 +62,13 @@ public class FXMLController implements Initializable {
     
     @FXML
     void startAcoButton(ActionEvent event){
-        ACO antColony = new ACO(cities.size());
-        //antColony.optimize();
+        ACO antColony = new ACO(cities.size(),Integer.parseInt(colonySize.getText()));
+        antColony.setIterations(Integer.parseInt(iterations.getText()));
+        antColony.setAlpha(Double.parseDouble(alpha.getText()));
+        antColony.setBeta(Double.parseDouble(beta.getText()));
+        antColony.setEvaporation(Double.parseDouble(evaporation.getText()));
+        antColony.setQ(Double.parseDouble(qVal.getText()));
+        //antColony.optimize(); TO DO testing
     }
     
     void refresh(){

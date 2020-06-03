@@ -14,21 +14,21 @@ import java.util.Random;
 import java.util.stream.IntStream;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import lombok.Setter;
 
 //VU6qX1mGKHLEZkb5E1b1~T3DaZuyK6Dn8qF6HxvwggA~AhJvdjQpVUVUVPXMCeEmVYV893RrJ_1cQDQrqNsDvRsxyVMZIMm6C9_7fDvoKGV-
 
-
+@Setter
 public class ACO {
     //TO DO FROM GUI
-    private double c = 1.0;
-    private double alpha = 1;
-    private double beta = 5;
-    private double evaporation = 0.5;
-    private double Q = 500;
-    private double antFactor = 0.8;
-    private double randomFactor = 0.01;
+    private double c;//= 1.0;
+    private double alpha;//= 1;
+    private double beta; //= 5;
+    private double evaporation; //= 0.5;
+    private double Q; //= 500;
+    private double randomFactor; //= 0.01;
     
-    private int iterations = 1000;
+    private int iterations;// = 1000;
     
     private List<Ant> ants = new ArrayList<>();
     private int numOfCities;
@@ -44,10 +44,10 @@ public class ACO {
     
     private static ObservableList<CitiesEnum> citiesList;
     
-    public ACO(int numOfCities){
+    public ACO(int numOfCities, int colonySize){
         graph = generateCitiesMatrix(numOfCities);
         numOfCities = graph.length;
-        numOfAnts = (int) (numOfCities * antFactor);//TO DO from GUI
+        numOfAnts=colonySize;
         routes = new double[numOfCities][numOfCities];
         probabilities = new double[numOfCities];
         createAnts(numOfAnts);
@@ -82,7 +82,7 @@ public class ACO {
             updateRoutes();
             updateBest();
         });
-        //TODO Syso Best route len and best route order
+        //TODO GUI Best route len and best route order
         return bestOrder.clone();
         
     }

@@ -65,7 +65,7 @@ public class ACO {
         IntStream.range(0, numOfAnts).forEach(i -> ants.add(new Ant(numOfCities)));
     }
     
-    public double[][] basicCitiesMatrix(){
+    public double[][] allCitiesMatrix(){
         //double[][] matrix=new double[20][20];
         double[][]matrix={ {0,294,272,581,4468,460,81,344,281,160,263,571,798,378,43,142,656,308,111,647},
                            {294,0,349,339,311,311,294,202,134,211,151,282,536,478,292,401,439,263,408,566},

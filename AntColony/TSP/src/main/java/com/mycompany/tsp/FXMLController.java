@@ -1,6 +1,7 @@
 package com.mycompany.tsp;
 
 import java.net.URL;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
@@ -45,37 +46,36 @@ public class FXMLController implements Initializable {
     private TextField evaporation;
     @FXML
     private TextField qVal;
-    
+
     private BidiMap<Integer, String> citiesMap = new DualHashBidiMap<>();
     private static BidiMap<Integer, String> selectedCitiesMap = new DualHashBidiMap<>();
-    
+
     private static ObservableList<String> cities = FXCollections.observableArrayList();
-    
+
     private static String lengthResult;
     private static String orderResult;
 
-    public static void setLengthResult(String res){
-        lengthResult=res;
+    public static void setLengthResult(String res) {
+        lengthResult = res;
     }
-    
-    public static void setOrderResult(String res){
-        orderResult=res;
+
+    public static void setOrderResult(String res) {
+        orderResult = res;
     }
-    
-    public static BidiMap getSelectedCitiesMap(){
+
+    public static BidiMap getSelectedCitiesMap() {
         return selectedCitiesMap;
     }
-    
+
     @FXML
     void addCityButton(ActionEvent event) {
         if (cityComboBox.valueProperty().getValue() != null) {
             if (!cities.contains(cityComboBox.getValue())) {
                 cities.add(cityComboBox.getValue());
-                selectedCitiesMap.put(citiesMap.getKey(cityComboBox.getValue()),cityComboBox.getValue());
+                selectedCitiesMap.put(citiesMap.getKey(cityComboBox.getValue()), cityComboBox.getValue());
                 System.out.println(selectedCitiesMap.toString());
                 addInfoLabel.setText("city added");
-            }
-            else{
+            } else {
                 addInfoLabel.setText("city already added");
             }
         } else {
@@ -83,10 +83,10 @@ public class FXMLController implements Initializable {
         }
         refresh();
     }
-    
+
     @FXML
-    void startAcoButton(ActionEvent event){
-        ACO antColony = new ACO(cities.size(),Integer.parseInt(colonySize.getText()));
+    void startAcoButton(ActionEvent event) {
+        ACO antColony = new ACO(cities.size(), Integer.parseInt(colonySize.getText()));
         antColony.setIterations(Integer.parseInt(iterations.getText()));
         antColony.setAlpha(Double.parseDouble(alpha.getText()));
         antColony.setBeta(Double.parseDouble(beta.getText()));
@@ -95,37 +95,48 @@ public class FXMLController implements Initializable {
         antColony.optimize(); //TO DO testing
         bestLen.setText(lengthResult);
         bestOrder.setText(orderResult);
+
+        //for testing- prints matrix with randomly generated numbers:
+        if (cities.size() == 20) {
+            for (double[] row : antColony.allCitiesMatrix()) {
+                System.out.println(Arrays.toString(row));
+            }
+        } else {
+            for (double[] row : antColony.generateRandomMatrix(cities.size())) {
+                System.out.println(Arrays.toString(row));
+            }
+        }
     }
-    
-    void refresh(){
+
+    void refresh() {
         citiesListView.setItems(cities);
     }
 
     public static ObservableList<String> getObservableList1() {
         return cities;
     }
-    
-    public void insertCitiesMap(){
-        citiesMap.put(0,"KRAKOW");
+
+    public void insertCitiesMap() {
+        citiesMap.put(0, "KRAKOW");
         citiesMap.put(1, "WARSZAWA");
         citiesMap.put(2, "WROCLAW");
-        citiesMap.put(3,"GDANSK");
+        citiesMap.put(3, "GDANSK");
         citiesMap.put(4, "BYDGOSZCZ");
         citiesMap.put(5, "POZNAN");
-        citiesMap.put(6,"KATOWICE");
-        citiesMap.put(7,"BIALYSTOK");
-        citiesMap.put(8,"LODZ");
-        citiesMap.put(9,"SANDOMIERZ");
-        citiesMap.put(10,"KAZIMIERZ DOLNY");
-        citiesMap.put(11,"RESZEL");
-        citiesMap.put(12,"MIELNO");
-        citiesMap.put(13,"KARPACZ");
-        citiesMap.put(14,"OLKUSZ");
-        citiesMap.put(15,"KRYNICA ZDROJ");
-        citiesMap.put(16,"HEL");
-        citiesMap.put(17,"ZAMOSC");
-        citiesMap.put(18,"ZAKOPANE");
-        citiesMap.put(19,"SZCZECIN");
+        citiesMap.put(6, "KATOWICE");
+        citiesMap.put(7, "BIALYSTOK");
+        citiesMap.put(8, "LODZ");
+        citiesMap.put(9, "SANDOMIERZ");
+        citiesMap.put(10, "KAZIMIERZ DOLNY");
+        citiesMap.put(11, "RESZEL");
+        citiesMap.put(12, "MIELNO");
+        citiesMap.put(13, "KARPACZ");
+        citiesMap.put(14, "OLKUSZ");
+        citiesMap.put(15, "KRYNICA ZDROJ");
+        citiesMap.put(16, "HEL");
+        citiesMap.put(17, "ZAMOSC");
+        citiesMap.put(18, "ZAKOPANE");
+        citiesMap.put(19, "SZCZECIN");
     }
 
     @Override

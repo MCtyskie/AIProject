@@ -96,16 +96,10 @@ public class FXMLController implements Initializable {
         bestLen.setText(lengthResult);
         bestOrder.setText(orderResult);
 
-        //for testing- prints matrix with randomly generated numbers:
-        if (cities.size() == 20) {
-            for (double[] row : antColony.allCitiesMatrix()) {
-                System.out.println(Arrays.toString(row));
-            }
-        } else {
-            for (double[] row : antColony.generateRandomMatrix(cities.size())) {
-                System.out.println(Arrays.toString(row));
-            }
+        for (double[] row : antColony.generateCitiesMatrix(cities.size())) {
+            System.out.println(Arrays.toString(row));
         }
+        
     }
 
     void refresh() {

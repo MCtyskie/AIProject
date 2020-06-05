@@ -49,8 +49,8 @@ public class ACO {
     private static BidiMap<Integer,String> citiesMap;
     
     public ACO(int numOfSelectedCities, int colonySize){
-        //graph = generateCitiesMatrix(numOfCities); TO DO MATRIX OF CITIES
-        graph = generateRandomMatrix(numOfSelectedCities); //FOR TESTING
+        
+        graph = generateCitiesMatrix(numOfSelectedCities);
         numOfCities = graph.length;
         numOfAnts=colonySize;
         System.out.println("CITIES : "+numOfCities+" | ANTS : "+numOfAnts);
@@ -67,7 +67,7 @@ public class ACO {
     
     public double[][] allCitiesMatrix(){
         //double[][] matrix=new double[20][20];
-        double[][]matrix={ {0,294,272,581,4468,460,81,344,281,160,263,571,798,378,43,142,656,308,111,647},
+        double[][]matrix={ {0,294,272,581,468,460,81,344,281,160,263,571,798,378,43,142,656,308,111,647},
                            {294,0,349,339,311,311,294,202,134,211,151,282,536,478,292,401,439,263,408,566},
                            {272,349,0,555,312,182,191,539,246,457,427,573,424,122,244,412,575,578,371,394},
                            {581,339,555,0,173,314,519,394,340,558,486,191,200,576,528,684,101,598,695,357},
@@ -91,18 +91,23 @@ public class ACO {
     }
 
     public double[][] generateCitiesMatrix(int numOfCities) {
-        double[][] citiesMatrix=new double[numOfCities][numOfCities];
-        citiesMap = FXMLController.getSelectedCitiesMap();
-        ArrayList<Integer> keys=(ArrayList<Integer>) citiesMap.keySet();
-        for(int i=0;i<numOfCities;i++){
-            int x = keys.get(i);
-            for(int j=0;j<numOfCities;j++){
-                int y = keys.get(j);
-                // TO DO  fetch from default matrix 
-                //citiesMatrix[i][j] = defaultmatrix[x][y];
-            }
+        double[][] allCitiesMatrix = allCitiesMatrix();
+        if(numOfCities==20){
+            return allCitiesMatrix();
         }
-        return citiesMatrix;
+        else{
+            double[][] citiesMatrix=new double[numOfCities][numOfCities];
+            citiesMap = FXMLController.getSelectedCitiesMap();
+            ArrayList<Integer> keys=new ArrayList<Integer>(citiesMap.keySet());
+            for(int i=0;i<numOfCities;i++){
+                int x = keys.get(i);
+                for(int j=0;j<numOfCities;j++){
+                    int y = keys.get(j);
+                    citiesMatrix[i][j] = allCitiesMatrix[x][y];
+                }
+            }
+            return citiesMatrix;
+        }
     }
     
     //FOR TESTING

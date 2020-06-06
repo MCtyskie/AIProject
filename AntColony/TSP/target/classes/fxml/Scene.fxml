@@ -13,7 +13,7 @@
       <ComboBox fx:id="cityComboBox" layoutX="36.0" layoutY="28.0" prefHeight="37.0" prefWidth="156.0" promptText="&lt;choose city&gt;" />
       <Button fx:id="addCityButton" layoutX="221.0" layoutY="28.0" mnemonicParsing="false" onAction="#addCityButton" prefHeight="37.0" prefWidth="76.0" text="add" />
       <Label fx:id="addInfoLabel" layoutX="148.0" layoutY="78.0" prefHeight="26.0" prefWidth="149.0" />
-      <ListView fx:id="citiesListView" layoutX="328.0" layoutY="28.0" prefHeight="302.0" prefWidth="278.0" />
+      <ListView fx:id="citiesListView" layoutX="420.0" layoutY="28.0" prefHeight="302.0" prefWidth="278.0" />
       <TextField fx:id="colonySize" layoutX="148.0" layoutY="115.0" promptText="30" />
       <TextField fx:id="iterations" layoutX="148.0" layoutY="150.0" promptText="100" />
       <TextField fx:id="alpha" layoutX="148.0" layoutY="188.0" promptText="1.0" />
@@ -58,5 +58,6 @@
       </Label>
       <Label fx:id="bestLen" layoutX="148.0" layoutY="345.0" prefHeight="26.0" prefWidth="457.0" />
       <Label fx:id="bestOrder" layoutX="148.0" layoutY="391.0" prefHeight="26.0" prefWidth="457.0" />
+      <Button fx:id="addAllCitiesButton" layoutX="312.0" layoutY="28.0" mnemonicParsing="false" onAction="#addAllCitiesButton" prefHeight="37.0" prefWidth="76.0" text="add all" />
    </children>
 </AnchorPane>

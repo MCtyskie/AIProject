@@ -1,8 +1,10 @@
 package com.mycompany.tsp;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -26,6 +28,8 @@ public class FXMLController implements Initializable {
     private Button addCityButton;
     @FXML
     private Button startACO;
+    @FXML
+    private Button addAllCitiesButton;
     @FXML
     private Label addInfoLabel;
     @FXML
@@ -85,6 +89,21 @@ public class FXMLController implements Initializable {
     }
 
     @FXML
+    void addAllCitiesButton(ActionEvent event) {
+        if (!cities.isEmpty() || !selectedCitiesMap.isEmpty()) {
+            cities.clear();
+            selectedCitiesMap.clear();
+        }
+        for (int i = 0; i <= 19; i++) {
+            cities.add((String) citiesMap.get(i));
+            selectedCitiesMap.put(citiesMap.getKey((String) citiesMap.get(i)), (String) citiesMap.get(i));
+        }
+        System.out.println(selectedCitiesMap.toString());
+        addInfoLabel.setText("all cities added");
+        refresh();
+    }
+
+    @FXML
     void startAcoButton(ActionEvent event) {
         ACO antColony = new ACO(cities.size(), Integer.parseInt(colonySize.getText()));
         antColony.setIterations(Integer.parseInt(iterations.getText()));
@@ -99,7 +118,7 @@ public class FXMLController implements Initializable {
         for (double[] row : antColony.generateCitiesMatrix(cities.size())) {
             System.out.println(Arrays.toString(row));
         }
-        
+
     }
 
     void refresh() {

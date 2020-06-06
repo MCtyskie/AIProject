@@ -60,5 +60,6 @@
       <Label fx:id="bestOrder" layoutX="148.0" layoutY="391.0" prefHeight="26.0" prefWidth="457.0" />
       <Button fx:id="addAllCitiesButton" layoutX="312.0" layoutY="28.0" mnemonicParsing="false" onAction="#addAllCitiesButton" prefHeight="37.0" prefWidth="76.0" text="add all" />
       <Button fx:id="removeCityButton" layoutX="726.0" layoutY="28.0" mnemonicParsing="false" onAction="#removeCityButton" prefHeight="37.0" prefWidth="76.0" text="remove" />
+      <Button fx:id="removeAllCitiesButton" layoutX="726.0" layoutY="86.0" mnemonicParsing="false" onAction="#removeAllCitiesButton" prefHeight="37.0" prefWidth="76.0" text="remove all" />
    </children>
 </AnchorPane>

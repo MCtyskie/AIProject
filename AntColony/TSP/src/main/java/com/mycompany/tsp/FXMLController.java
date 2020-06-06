@@ -33,6 +33,8 @@ public class FXMLController implements Initializable {
     @FXML
     private Button removeCityButton;
     @FXML
+    private Button removeAllCitiesButton;
+    @FXML
     private Label addInfoLabel;
     @FXML
     private Label bestLen;
@@ -110,14 +112,27 @@ public class FXMLController implements Initializable {
         if (citiesListView.getSelectionModel().getSelectedItem() != null) {
             String cityToRemove = citiesListView.getSelectionModel().getSelectedItem();
             cities.remove(cityToRemove);
-            selectedCitiesMap.values().removeIf(value->value.contains(cityToRemove));
+            selectedCitiesMap.values().removeIf(value -> value.contains(cityToRemove));
             //selectedCitiesMap.remove(cityToRemove);
             System.out.println(selectedCitiesMap.toString());
             addInfoLabel.setText("city removed");
         } else {
             addInfoLabel.setText("Nothing to remove");
         }
-
+        refresh();
+    }
+    
+    @FXML
+    void removeAllCitiesButton(ActionEvent event) {
+        if (!cities.isEmpty() || !selectedCitiesMap.isEmpty()) {
+            cities.clear();
+            selectedCitiesMap.clear();
+            System.out.println(selectedCitiesMap.toString());
+            addInfoLabel.setText("All citites removed");
+        }else{
+            addInfoLabel.setText("Nothing to remove");
+        }
+        refresh();
     }
 
     @FXML

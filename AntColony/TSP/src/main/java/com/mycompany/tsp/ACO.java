@@ -61,7 +61,7 @@ public class ACO {
     
  
     public int[] getBestOrder(){
-        return bestOrder;
+        return Arrays.copyOf(bestOrder,bestOrder.length);
     }
     
     public void createAnts(int numOfAnts){

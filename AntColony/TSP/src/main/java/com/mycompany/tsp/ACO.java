@@ -60,6 +60,9 @@ public class ACO {
     }
     
  
+    public int[] getBestOrder(){
+        return bestOrder;
+    }
     
     public void createAnts(int numOfAnts){
         IntStream.range(0, numOfAnts).forEach(i -> ants.add(new Ant(numOfCities)));

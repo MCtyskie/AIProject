@@ -43,6 +43,8 @@ public class FXMLController implements Initializable {
     @FXML
     private ListView<String> citiesListView;
     @FXML
+    private ListView<String> finalOrderListView;
+    @FXML
     private TextField colonySize;
     @FXML
     private TextField iterations;
@@ -59,6 +61,7 @@ public class FXMLController implements Initializable {
     private static BidiMap<Integer, String> selectedCitiesMap = new DualHashBidiMap<>();
 
     private static ObservableList<String> cities = FXCollections.observableArrayList();
+    private static ObservableList<String> orderedCities=FXCollections.observableArrayList();
 
     private static String lengthResult;
     private static String orderResult;
@@ -150,7 +153,7 @@ public class FXMLController implements Initializable {
         for (double[] row : antColony.generateCitiesMatrix(cities.size())) {
             System.out.println(Arrays.toString(row));
         }
-
+        //todo: add ordered citites to finalOrderListView
     }
 
     void refresh() {

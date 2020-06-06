@@ -17,7 +17,7 @@ public class MainApp extends Application {
         Scene scene = new Scene(root);
         scene.getStylesheets().add("/styles/Styles.css");
         
-        stage.setTitle("The Salesman Problem- ant colony optimalization");
+        stage.setTitle("Traveling Salesman Problem- ant colony optimalization");
         stage.setScene(scene);
         stage.show();
     }

@@ -1,5 +1,6 @@
 package com.mycompany.tsp;
 
+import java.lang.reflect.Array;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -66,6 +67,8 @@ public class FXMLController implements Initializable {
     private static String lengthResult;
     private static String orderResult;
 
+    
+    
     public static void setLengthResult(String res) {
         lengthResult = res;
     }
@@ -153,13 +156,21 @@ public class FXMLController implements Initializable {
         for (double[] row : antColony.generateCitiesMatrix(cities.size())) {
             System.out.println(Arrays.toString(row));
         }
-        //todo: add ordered citites to finalOrderListView
-        int[] xd=antColony.getBestOrder();
-        System.out.println(xd);
+        int[] bestOrder=antColony.getBestOrder();
+        orderedCities.clear();
+        //System.out.println(Arrays.toString(xd));
+        //System.out.println(cities.get(0)); //printuje 1 item z tabeli pierwszej
+        for(int i=0;i<cities.size();i++){
+            int firstElementOfArray=(int)Array.get(bestOrder,i);
+            String cityInFirstTable=cities.get(firstElementOfArray);
+            orderedCities.add(cityInFirstTable);
+        }
+        refresh();
     }
 
     void refresh() {
         citiesListView.setItems(cities);
+        finalOrderListView.setItems(orderedCities);
     }
 
     public static ObservableList<String> getObservableList1() {

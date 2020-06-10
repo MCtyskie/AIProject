@@ -154,6 +154,8 @@ public class FXMLController implements Initializable {
             System.out.println(Arrays.toString(row));
         }
         //todo: add ordered citites to finalOrderListView
+        int[] xd=antColony.getBestOrder();
+        System.out.println(xd);
     }
 
     void refresh() {

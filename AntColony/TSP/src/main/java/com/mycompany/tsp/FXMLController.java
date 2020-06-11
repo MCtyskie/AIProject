@@ -87,7 +87,6 @@ public class FXMLController implements Initializable {
             if (!cities.contains(cityComboBox.getValue())) {
                 cities.add(cityComboBox.getValue());
                 selectedCitiesMap.put(citiesMap.getKey(cityComboBox.getValue()), cityComboBox.getValue());
-                System.out.println(selectedCitiesMap.toString());
                 addInfoLabel.setText("city added");
             } else {
                 addInfoLabel.setText("city already added");
@@ -108,7 +107,6 @@ public class FXMLController implements Initializable {
             cities.add((String) citiesMap.get(i));
             selectedCitiesMap.put(citiesMap.getKey((String) citiesMap.get(i)), (String) citiesMap.get(i));
         }
-        System.out.println(selectedCitiesMap.toString());
         addInfoLabel.setText("all cities added");
         refresh();
     }
@@ -152,10 +150,6 @@ public class FXMLController implements Initializable {
         antColony.optimize(); //TO DO testing
         bestLen.setText(lengthResult);
         bestOrder.setText(orderResult);
-
-        for (double[] row : antColony.generateCitiesMatrix(cities.size())) {
-            System.out.println(Arrays.toString(row));
-        }
         int[] bestOrder=antColony.getBestOrder();
         orderedCities.clear();
         //System.out.println(Arrays.toString(xd));

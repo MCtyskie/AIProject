@@ -53,7 +53,6 @@ public class ACO {
         graph = generateCitiesMatrix(numOfSelectedCities);
         numOfCities = graph.length;
         numOfAnts=colonySize;
-        System.out.println("CITIES : "+numOfCities+" | ANTS : "+numOfAnts);
         routes = new double[numOfCities][numOfCities];
         probabilities = new double[numOfCities];
         createAnts(numOfAnts);
